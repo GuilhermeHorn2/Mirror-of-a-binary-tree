@@ -1,0 +1,23 @@
+typedef struct node{
+    int data;
+    struct node *esp,*dir;
+}node;
+
+
+typedef node *p_node;
+
+void espelha(p_node raiz){
+    if(raiz == NULL){
+        return;
+    }
+    else{
+        //traversing the tree
+        espelha(raiz->dir);
+        espelha(raiz->esq);
+        
+        //trocando o node direito por esquerdo
+        p_no x = raiz->dir;
+        raiz->dir = raiz->esq;
+        raiz->esq = x;
+    }
+}
